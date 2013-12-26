@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3', :engine =>'jruby', :engine_version => '1.7.9'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
@@ -7,6 +8,10 @@ gem 'rails', '4.0.2'
 #gem 'activerecord-jdbcsqlite3-adapter'
 group :development, :production do
   gem 'activerecord-jdbcpostgresql-adapter'
+end
+
+group :development,:test do
+  gem 'rspec-rails'
 end
 
 group :test do
@@ -40,6 +45,7 @@ group :doc do
 end
 
 gem 'foundation-rails'
+gem 'unicode_utils'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
@@ -55,6 +61,3 @@ gem 'foundation-rails'
 gem 'puma'
 
 
-group :test do
-  gem 'rspec-rails'
-end
