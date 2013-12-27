@@ -48,6 +48,9 @@ end
 gem 'foundation-rails'
 gem 'unicode_utils'
 
+# caching
+gem 'actionpack-page_caching'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
