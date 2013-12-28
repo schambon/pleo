@@ -16,3 +16,6 @@
 /tmp
 .rspec
 *.sqlite3
+
+# vi
+*.swp

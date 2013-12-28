@@ -1,3 +1,4 @@
+<div id="output">
 <p>
 <% @output.split(/\n/).each do |line| %>
 <%=raw line%>
@@ -5,6 +6,9 @@
 <p>
 <%end%>
 </p>
+</div>
+
+<hr/>
 
 <ul>
   <% @repet.each do |r| %>
