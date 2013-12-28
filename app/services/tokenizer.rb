@@ -14,6 +14,8 @@ class Tokenizer
   end
 
   def tokenize(text)
+    @text = text # TODO refactor text into a constructor argument
+
     t = UnicodeUtils.downcase(text)   # use this rather than basic String.downcase to deal with accented letters correctly
     t = t.gsub(NOT_ALPHA, ' ')
     char_counter = 0
@@ -38,8 +40,27 @@ class Tokenizer
 
   private
 
+  def propername?
+
+    i = @word_start_counter
+    return false if UnicodeUtils.downcase(@text[i]) == @text[i]
+
+    l = nil
+    while (l == nil && i > 0)
+      i = i - 1
+      c = @text[i]
+      l = c if UnicodeUtils.downcase(c).match(/[a-zàáäâéèëêíìïîóòôöúùüûýỳÿŷçåůæøœ\.]/)
+    end
+    return "." != l
+
+  end
+
+  def keep?
+    @word != "" && !@stopwords.has_key?(@word) && !propername?
+  end
+
   def flush
-    if (@word != "" && !@stopwords.has_key?(@word))
+    if keep?
       w = Word.new @word, @word_start_counter, @word_counter
 
       @words[w.stem] = [] if ! @words.has_key? w.stem
