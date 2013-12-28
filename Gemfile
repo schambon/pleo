@@ -13,6 +13,7 @@ end
 
 group :development,:test do
   gem 'rspec-rails'
+  gem 'ruby-debug'
 end
 
 group :test do

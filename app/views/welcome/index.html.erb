@@ -2,3 +2,9 @@
 <p><em>Pleo</em> est un analyseur de texte qui identifie notamment les répétitions. Il est également capable d'extraire un certain nombre de statistiques sur le vocabulaire utilisé.</p>
 <p>Pleo a vécu quelques années sous le (défunt) domaine fifokaswiti.info. Il est en train de renaître ici.</p>
 <p>Revenez donc sur cette page dans quelques jours pour découvrir Pleo v2.</p>
+
+<%= form_tag({controller: 'text', action: 'analyze'}, method: 'post') do %>
+  <textarea name="text">
+  </textarea>
+  <input type="submit">
+<% end %>

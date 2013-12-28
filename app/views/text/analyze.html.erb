@@ -1,0 +1,14 @@
+<p>
+<% @output.split(/\n/).each do |line| %>
+<%=raw line%>
+</p>
+<p>
+<%end%>
+</p>
+
+<ul>
+  <% @repet.each do |r| %>
+  <li><%= r.stem %>, score = <%=r.score%> (<%= r.occurrences.map {|o| o.as_found}.join(", ")%>)</li>
+  <% end %>
+
+</ul>

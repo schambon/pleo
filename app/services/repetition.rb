@@ -1,7 +1,14 @@
+require 'rubygems'
+require 'ruby-debug'
+
 class Repetition
 
   attr_accessor :stem, :occurrences
   attr_accessor :score
+
+  def id
+    stem + "_" + @rnd.to_s
+  end
 
   def self.analyze(hash_of_list_of_words, threshold = 400)
     result = []
@@ -28,10 +35,12 @@ class Repetition
       end
     end
 
-    max = result.max{|r| r.score}.score
+
+    max = result.max_by{|r| r.score}.score
+    result.each {|r| r.score = r.score / max }
+    return result
 
 
-    return result.map! {|r| r.score = r.score / max; r } # normalize
   end
 
   def calculate_score
@@ -46,6 +55,9 @@ class Repetition
       prev = o
     end
     @score = @occurrences.size.to_f / min.to_f
+
+
+    @rnd = rand(100)
   end
 
   private
