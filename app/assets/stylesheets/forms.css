@@ -1,0 +1,7 @@
+textarea {
+height: 400px;
+}
+
+div#output {
+  border-left: 1px black solid;
+}

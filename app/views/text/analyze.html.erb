@@ -1,4 +1,6 @@
-<div id="output">
+<h1>Résultat de l'analyse</h1>
+<div class="row">
+<div id="output" class="large-10 large-offset-1 columns">
 <p>
 <% @output.split(/\n/).each do |line| %>
 <%=raw line%>
@@ -7,9 +9,10 @@
 <%end%>
 </p>
 </div>
+</div>
 
 <hr/>
-
+<h1>Liste des répétitions identifiées</h1>
 <ul>
   <% @repet.each do |r| %>
   <li><%= r.stem %>, score = <%=r.score%> (<%= r.occurrences.map {|o| o.as_found}.join(", ")%>)</li>

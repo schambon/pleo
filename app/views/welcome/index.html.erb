@@ -1,10 +1,14 @@
 <h1>Pleo v2</h1>
 <p><em>Pleo</em> est un analyseur de texte qui identifie notamment les répétitions. Il est également capable d'extraire un certain nombre de statistiques sur le vocabulaire utilisé.</p>
-<p>Pleo a vécu quelques années sous le (défunt) domaine fifokaswiti.info. Il est en train de renaître ici.</p>
-<p>Revenez donc sur cette page dans quelques jours pour découvrir Pleo v2.</p>
+<p><em>Pleo v2</em> est à considérer comme une version bêta − tout peut évoluer à tout moment. De même, tout n'est pas très "sec" ; si vous voyez des bugs, des comportements inattendus, etc. : n'hésitez pas à me le dire (fifokaswiti (at) gmail.com ou, si vous savez utiliser github, créez-y un bug sur <a href="https://github.com/schambon/pleo">schambon/pleo</a>).
 
+<h2>Votre texte :</h2>
 <%= form_tag({controller: 'text', action: 'analyze'}, method: 'post') do %>
-  <textarea name="text">
+  <textarea name="text" >
   </textarea>
-  <input type="submit">
+  <input type="submit" class="button" value="Analyser">
 <% end %>
+
+<h3>Ça va sans dire, mais ça va mieux en le disant</h3>
+<p><em>Votre chef-d'œuvre ne m'intéresse pas.</em> Je ne l'enregistre pas, je ne le stocke d'aucune manière à aucun endroit sur le Net. Je ne vais pas vous voler le fruit de votre labeur. J'envisage des évolutions futures permettant aux utilisateurs de Pleo d'enregistrer des éléments statistiques (du type termes qui reviennent le plus souvent) pour leur permettre d'identifier l'évolution de leur style ; dans ce cas la sauvegarde de ces éléments sera individualisée, contrôlée par vous-mêmes, et de toute manière ce ne sera pas le texte brut que l'on enregistrera. N'ayez crainte pour vos droits d'auteur, ce n'est pas moi qui vous en spolierai.</p>
+<p><em>Pleo est un outil de traitement automatique du langage</em> : il est conçu comme une aide pour les auteurs, pour leur permettre d'identifier certaines relatives faiblesses de style. Il s'agit d'un outil purement algorithmique : certaines répétitions sont bénignes, d'autres sont gênantes, d'autres encore correspondent à des effets de style. Pleo ne peut pas, par conception, évaluer votre style ou le bien-fondé d'une répétition ; il ne peut que signaler qu'un terme est répété de nombreuses fois dans un paragraphe. Caveat emptor : malgré tous mes efforts il est tout à fait normal que Pleo remonte des répétitions qui n'en sont pas, ou qui sont tout à fait justifiées dans votre texte. Je vous déconseille de lui faire analyser les Litanies de Satan de Baudelaire :)</p>
