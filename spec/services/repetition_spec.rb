@@ -52,5 +52,38 @@ describe Repetition do
     end
   end
 
+  describe 'Scoring' do
+    sample = <<-END
+        Roger décida de prendre le bus, mais le bus était en retard. Impossible de prendre un bus dans cette ville ! Il décida donc d'emprunter le tram, faute de bus.
+    END
+
+    repet = Repetition.analyze(Tokenizer.new.tokenize sample)
+    it 'should score higher words that are more repeated' do
+      bus_r = repet.select {|r| r.stem == "bus"}
+      bus_r.should_not be_empty
+      bus_r.size.should == 1
+      bus = bus_r[0]
+      prendr_r = repet.select {|r| r.stem == "prendr"}
+      prendr_r.should_not be_empty
+      prendr_r.size.should == 1
+      prendr = prendr_r[0]
+  
+      bus.score.should > prendr.score
+    end
+
+    it 'should yield normalized scores' do
+      bus = repet.select {|r| r.stem == "bus"}[0]
+      bus.score.should == 1 # highest score
+      prendr = repet.select {|r| r.stem == "prendr"}[0]
+      prendr.score.should < 1
+      prendr.score.should > 0
+      decid = repet.select {|r| r.stem == "décid"}[0]
+      decid.score.should < 1
+      decid.score.should > 0
+      decid.score.should < prendr.score
+    end
+
+  end
+
 end
 

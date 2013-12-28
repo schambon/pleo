@@ -1,8 +1,7 @@
 class Repetition
 
   attr_accessor :stem, :occurrences
-
-
+  attr_accessor :score
 
   def self.analyze(hash_of_list_of_words, threshold = 400)
     result = []
@@ -29,7 +28,24 @@ class Repetition
       end
     end
 
-    return result
+    max = result.max{|r| r.score}.score
+
+
+    return result.map! {|r| r.score = r.score / max; r } # normalize
+  end
+
+  def calculate_score
+    min = nil
+    prev = nil
+    # I guess there is a more functional way to do this, with inject or something
+    @occurrences.each do |o|
+      if prev != nil
+        diff = o.word_position - prev.word_position
+        min = diff if min == nil || diff < min
+      end
+      prev = o
+    end
+    @score = @occurrences.size.to_f / min.to_f
   end
 
   private
@@ -38,7 +54,7 @@ class Repetition
     r = Repetition.new
     r.stem = stem
     r.occurrences = occurrences
-
+    r.calculate_score
     return r
   end
 
