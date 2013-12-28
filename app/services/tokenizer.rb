@@ -3,17 +3,19 @@ require 'unicode_utils/downcase'
 
 class Tokenizer
 
+  NOT_ALPHA = /[^a-zàáäâéèëêíìïîóòôöúùüûýỳÿŷçåůæøœ]/
+
   def initialize
     @stopwords = {}
     File.open(Rails.root.join('config').join('stop_words.txt')).each_line do |line|
-      line = line.gsub(/\|.+/, "").gsub(/\W/, "")
+      line = line.gsub(/\|.+/, "").gsub(NOT_ALPHA, "")
       @stopwords[line] = "stop" if line != ''
     end
   end
 
   def tokenize(text)
     t = UnicodeUtils.downcase(text)   # use this rather than basic String.downcase to deal with accented letters correctly
-    t = t.gsub(/[^a-zàáäâéèëêíìïîóòôöúùüûýỳÿŷçåůæøœ]/, ' ')
+    t = t.gsub(NOT_ALPHA, ' ')
     char_counter = 0
     @word_start_counter = 0
     @word_counter = 0
