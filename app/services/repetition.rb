@@ -33,9 +33,10 @@ class Repetition
       end
     end
 
-
-    max = result.max_by{|r| r.score}.score
-    result.each {|r| r.score = r.score / max }
+    if (! result.empty?)
+      max = result.max_by{|r| r.score}.score
+      result.each {|r| r.score = r.score / max }
+    end
     return result
 
 
