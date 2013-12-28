@@ -6,9 +6,20 @@
 
 <h2>Votre texte :</h2>
 <%= form_tag({controller: 'text', action: 'analyze'}, method: 'post') do %>
-  <textarea name="text" >
-  </textarea>
-  <input type="submit" class="button" value="Analyser">
+  <div class="row">
+    <div class="large-12 columns">
+      <textarea name="text" >
+      </textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label for="threshold">Seuil de détection des répétitions (en nombre de <em>mots</em>)</label><input type="text" name="threshold" value="200">
+    </div>
+  </div>
+  <div class="row">
+    <input type="submit" class="button large-12 columns" value="Analyser">
+  </div>
 <% end %>
 
 <h3>Ça va sans dire, mais ça va mieux en le disant</h3>

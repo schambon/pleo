@@ -2,7 +2,8 @@ class TextController < ApplicationController
 
 
   def analyze
-    @repet = Repetition.analyze(Tokenizer.new.tokenize(params[:text]))
+    t = (params[:threshold].to_i if is_i?(params[:threshold])) || 100
+    @repet = Repetition.analyze(Tokenizer.new.tokenize(params[:text]), t)
     rep_by_char_idx = {}
     @repet.each do |r|
       r.occurrences.each do |o|
@@ -29,4 +30,11 @@ class TextController < ApplicationController
     @repet = @repet.sort { |r1,r2| r1.score <=> r2.score }.reverse
 
   end
+
+
+  private
+
+    def is_i?(string)
+           !!(string =~ /^[-+]?[0-9]+$/)
+    end
 end
