@@ -68,4 +68,3 @@ gem 'rails_12factor', group: :production
 # Use Puma for deployment
 gem 'puma'
 
-gem 'modernizr'
