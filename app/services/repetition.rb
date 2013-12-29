@@ -1,4 +1,3 @@
-
 class Repetition
 
   attr_accessor :stem, :occurrences
@@ -33,10 +32,10 @@ class Repetition
       end
     end
 
-    if (! result.empty?)
-      max = result.max_by{|r| r.score}.score
-      result.each {|r| r.score = r.score / max }
-    end
+#    if (! result.empty?)
+#  max = result.max_by{|r| r.score}.score
+#      result.each {|r| r.score = r.score / max }
+#    end
     return result
 
 
@@ -53,8 +52,8 @@ class Repetition
       end
       prev = o
     end
-    @score = @occurrences.size.to_f / min.to_f
-
+    @score =  @occurrences.size.to_f / Math.sqrt(min.to_f - 1.0)
+    @score = 1.0 if @score > 1.0
 
     @rnd = rand(100)
   end
