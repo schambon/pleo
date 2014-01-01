@@ -22,8 +22,27 @@
   </div>
 <% end %>
 
+</div>
+</div>
+<div class="row">
+<div class="medium-6 columns">
 <h3>Ça va sans dire, mais ça va mieux en le disant</h3>
 <p><em>Votre chef-d'œuvre ne m'intéresse pas.</em> Je ne l'enregistre pas, je ne le stocke d'aucune manière à aucun endroit sur le Net. Je ne vais pas vous voler le fruit de votre labeur. J'envisage des évolutions futures permettant aux utilisateurs de Pleo d'enregistrer des éléments statistiques (du type termes qui reviennent le plus souvent) pour leur permettre d'identifier l'évolution de leur style ; dans ce cas la sauvegarde de ces éléments sera individualisée, contrôlée par vous-mêmes, et de toute manière ce ne sera pas le texte brut que l'on enregistrera. N'ayez crainte pour vos droits d'auteur, ce n'est pas moi qui vous en spolierai.</p>
 <p><em>Pleo est un outil de traitement automatique du langage</em> : il est conçu comme une aide pour les auteurs, pour leur permettre d'identifier certaines relatives faiblesses de style. Il s'agit d'un outil purement algorithmique : certaines répétitions sont bénignes, d'autres sont gênantes, d'autres encore correspondent à des effets de style. Pleo ne peut pas, par conception, évaluer votre style ou le bien-fondé d'une répétition ; il ne peut que signaler qu'un terme est répété de nombreuses fois dans un paragraphe. Caveat emptor : malgré tous mes efforts il est tout à fait normal que Pleo remonte des répétitions qui n'en sont pas, ou qui sont tout à fait justifiées dans votre texte. Je vous déconseille de lui faire analyser les Litanies de Satan de Baudelaire :)</p>
+</div>
+<div class="medium-6 columns">
+<h3>Comment fonctionne Pleo ?</h3>
+<p>Lorsque vous entrez un texte dans Pleo, celui-ci réalise les opérations suivantes :
+<ul>
+  <li>Décomposition du texte en une suite de termes (<em>tokenization</em>)</li>
+  <li>Exclusion d'un certain nombre de mots « creux », c'est-à-dire transparents pour le lecteur : conjonctions de coordination, pronoms, auxilliaires, etc. Dans le futur, j'envisage de rendre cette liste paramétrable.</li>
+  <li>Exclusion des noms propres (ou en tout cas, des mots capitalisés qui ne sont pas en début de phrase.) J'estime en effet que, dans un texte de fiction, le nom d'un protagoniste peut être répété à l'envi soit que ce soit une faute de style. Votre avis peut différer : dans le futur il est possible / probable que cette fonction soit désactivable.</li>
+  <li>Extraction de la racine des termes restants (ainsi, "restants" et "restent" deviennent "rest", pour que la phrase "les termes restants restent" soit analysée comme une répétition.)</li>
+  <li>Regroupement des termes en fonction de leur position dans le texte, identification des répétitions à l'aide du seuil paramétré.</li>
+  <li>Affectation d'un « score » compris entre 0 et 1 à chaque répétition, en fonction du nombre de fois où le mot est répété et de la fréquence de répétition.</li>
+  <li>Affichage du résultat, les répétitions étant soulignées d'une couleur dépendant du score, allant du vert clair au rouge vif. La teinte est plus importante que la saturation : une répétition signalée en jaune clair est « pire » qu'une autre soulignée en vert vif.</li>
+  <li>Passer la souris sur un terme d'une répétition souligne (en bleu) les autres termes de la même répétition.</li>
+</ul>
+
 </div>
 </div>
