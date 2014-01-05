@@ -12,10 +12,20 @@
 </div>
 
 <hr/>
-<h1>Liste des répétitions identifiées</h1>
-<ul>
-  <% @repet.each do |r| %>
-  <li><%= r.stem %>, score = <%=r.score%> (<%= r.occurrences.map {|o| o.as_found}.join(", ")%>)</li>
-  <% end %>
 
-</ul>
+<h1>Analyser un nouveau texte</h1>
+<%= form_tag({controller: 'text', action: 'analyze'}, method: 'post') do %>
+  <div class="row">
+    <div class="large-12 columns">
+      <textarea name="text"></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label for="threshold">Seuil de détection des répétitions</label><input type="text" name="threshold" value="100">
+    </div>
+  </div>
+  <div class="row">
+    <input type="submit" class="button large-12 columns" value="Analyser">
+  </div>
+<% end %>
