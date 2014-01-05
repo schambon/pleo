@@ -7,18 +7,18 @@ gem 'rails', '4.0.2'
 
 # Use jdbcsqlite3 as the database for Active Record
 #gem 'activerecord-jdbcsqlite3-adapter'
-group :development, :production do
-  gem 'activerecord-jdbcpostgresql-adapter'
-end
+#group :development, :production do
+#  gem 'activerecord-jdbcpostgresql-adapter'
+#end
+#group :test do
+#  gem 'activerecord-jdbcsqlite3-adapter'
+#end
 
 group :development,:test do
   gem 'rspec-rails'
   gem 'ruby-debug'
 end
 
-group :test do
-  gem 'activerecord-jdbcsqlite3-adapter'
-end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
