@@ -68,3 +68,5 @@ gem 'rails_12factor', group: :production
 # Use Puma for deployment
 gem 'puma'
 
+# New Relic monitoring
+gem 'newrelic_rpm'
