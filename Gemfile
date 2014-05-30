@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '1.9.3', :engine =>'jruby', :engine_version => '1.7.9'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.5'
 
 # Use jdbcsqlite3 as the database for Active Record
 #gem 'activerecord-jdbcsqlite3-adapter'
@@ -34,6 +34,7 @@ gem 'therubyrhino'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
