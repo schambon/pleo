@@ -67,9 +67,9 @@ gem 'rails_12factor', group: :production
 
 
 # Use Puma for deployment
-#gem 'puma'
+gem 'puma'
 # Try using Jubilee (built on top of Vertx)
-gem 'jubilee'
+#gem 'jubilee'
 
 # New Relic monitoring
 gem 'newrelic_rpm'
